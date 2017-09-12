@@ -1,6 +1,6 @@
 {
   "name": "pwc-us-agc-logger",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Easily access logger. Handle all config from .env",
   "main": "lib/index.js",
   "scripts": {

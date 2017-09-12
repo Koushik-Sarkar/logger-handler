@@ -1,6 +1,6 @@
 {
   "name": "logger-handler",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Easily access logger. Handle all config from .env",
   "main": "index.js",
   "scripts": {
