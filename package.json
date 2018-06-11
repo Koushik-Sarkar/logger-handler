@@ -1,12 +1,12 @@
 {
-  "name": "pwc-us-agc-logger",
-  "version": "1.0.1",
+  "name": "logger-handler",
+  "version": "1.2",
   "description": "Easily access logger. Handle all config from .env",
   "main": "lib/index.js",
   "scripts": {
-  "clean": "rmdir /s /q lib",
+    "clean": "rm -rf lib",
     "test": "echo \"Error: no test specified\" && exit 1",
-	"build": "npm run clean && babel ./src --ignore node_modules,.git,.babelrc,bin,lib -d ./lib",
+    "build": "npm run clean && babel ./src --ignore node_modules,.git,.babelrc,bin,lib -d ./lib",
     "start": "npm run build && node ./lib/index.js"
   },
   "repository": {
@@ -16,6 +16,7 @@
   "author": "Koushik Sarkar",
   "license": "ISC",
   "dependencies": {
+    "app-root-path": "^2.0.1",
     "dotenv": "^4.0.0",
     "winston": "^2.3.1"
   },
