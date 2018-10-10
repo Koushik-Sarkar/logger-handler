@@ -21,19 +21,19 @@ class Logger {
   }
 
   logFormatter(options) {
-    return `[${options.timestamp()}] - [${options.level.toUpperCase()}] -` + (options.message ? options.message : ``) +
-      (options.meta && Object.keys(options.meta).length ?
-        `\n\t` + JSON.stringify(options.meta) : ``);
-  };
+    return `[${options.timestamp()}] - [${options.level.toUpperCase()}] -${  options.message ? options.message : `` 
+      }${options.meta && Object.keys(options.meta).length ?
+        `\n\t` + JSON.stringify(options.meta) : ``}`;
+  }
 
   tsFormat() {
     const d = new Date();
-    var yyyy = d.getFullYear().toString();                                    
-    var mm = (d.getMonth()+1).toString(); // getMonth() is zero-based         
-    var dd  = d.getDate().toString();    
-    return yyyy + '-' + (mm[1]?mm:"0"+mm[0]) + '-' + (dd[1]?dd:"0"+dd[0]) + ` ` + d.getHours() + `:` + d.getMinutes() + `:` +
-      d.getSeconds()
-  };
+    let yyyy = d.getFullYear().toString();
+    let mm = (d.getMonth() + 1).toString(); // getMonth() is zero-based
+    let dd = d.getDate().toString();
+    return `${yyyy  }-${  mm[1]?mm:"0"+mm[0]  }-${  dd[1]?dd:"0"+dd[0]  } ${  d.getHours()  }:${  d.getMinutes()  }:${ 
+      d.getSeconds()}`;
+  }
 
   setLogLevel(input) {
     if (input) {
@@ -60,7 +60,7 @@ class Logger {
           formatter: this.logFormatter,
           timestamp: this.tsFormat,
           level: 'info',
-          json : false
+          json: false
         }),
         new (winston.transports.File)({
           name: 'error-file',
@@ -68,7 +68,7 @@ class Logger {
           formatter: this.logFormatter,
           timestamp: this.tsFormat,
           level: 'error',
-          json : false
+          json: false
         })
       ]
     });
@@ -87,6 +87,20 @@ class Logger {
     return this.logger;
   }
 
+  getLoggerWithConsole(logLevel = 'debug') {
+    return new winston.Logger({
+      transports: [
+        new winston.transports.Console({
+          handleExceptions: true,
+          humanReadableUnhandledException: true,
+          timestamp: this.tsFormat,
+          formatter: this.logFormatter,
+          json: false,
+          level: logLevel
+        })
+      ]
+    });
+  }
 }
 
 export default Logger;

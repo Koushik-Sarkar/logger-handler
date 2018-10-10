@@ -1,6 +1,6 @@
 # Dependency directory
 node_modules
-
+LOG_STORAGE
 # Debug log from npm
 npm-debug.log
 test.js

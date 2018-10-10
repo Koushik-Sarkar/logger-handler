@@ -1,0 +1,17 @@
+{
+  "name": "logger-handler",
+  "version": "1.2.1",
+  "description": "Easily access logger. Handle all config from .env",
+  "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Koushik-Sarkar/logger-handler.git"
+  },
+  "author": "Koushik Sarkar",
+  "license": "ISC",
+  "dependencies": {
+    "app-root-path": "^2.0.1",
+    "dotenv": "^4.0.0",
+    "winston": "^2.3.1"
+  }
+}
